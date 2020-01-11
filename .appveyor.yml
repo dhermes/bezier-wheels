@@ -16,7 +16,7 @@ environment:
     BUILD_COMMIT: 76d7c1b6b48f49b37699a656c60f06d8b3baca5b
     BUILD_DEPENDS: numpy
     TEST_DEPENDS:
-      '--requirement %APPVEYOR_BUILD_FOLDER%\bezier\scripts\requirements.txt'
+      '--requirement %APPVEYOR_BUILD_FOLDER%\bezier\scripts\requirements.txt sympy'
     BEZIER_JOURNAL: '%APPVEYOR_BUILD_FOLDER%\bezier\journal.txt'
     BEZIER_WHEEL: 'True'
 

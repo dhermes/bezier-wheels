@@ -4,7 +4,7 @@ env:
     - REPO_DIR=bezier
     - BUILD_COMMIT=76d7c1b6b48f49b37699a656c60f06d8b3baca5b
     - BUILD_DEPENDS="numpy"
-    - TEST_DEPENDS="--requirement bezier/scripts/requirements.txt"
+    - TEST_DEPENDS="--requirement bezier/scripts/requirements.txt sympy"
     - PLAT=x86_64
     - UNICODE_WIDTH=32
     - ENV_VARS_PATH="travis/env_vars.sh"
