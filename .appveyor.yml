@@ -13,10 +13,10 @@ environment:
   global:
     REPO_DIR: bezier
     PACKAGE_NAME: bezier
-    BUILD_COMMIT: 76d7c1b6b48f49b37699a656c60f06d8b3baca5b
+    BUILD_COMMIT: 9d2cc51a18bd2ec8e3a17d576e907e306310d0be
     BUILD_DEPENDS: numpy
     TEST_DEPENDS:
-      '--requirement %APPVEYOR_BUILD_FOLDER%\bezier\scripts\requirements.txt sympy'
+      '--requirement %APPVEYOR_BUILD_FOLDER%\bezier\scripts\requirements.txt'
     BEZIER_JOURNAL: '%APPVEYOR_BUILD_FOLDER%\bezier\journal.txt'
     BEZIER_WHEEL: 'True'
 
@@ -98,9 +98,9 @@ artifacts:
   - path: 'bezier\journal.txt'
 
 on_success:
-  # Make a Python 3.7 virtual environment for `gsutil`
-  - py -3.7 -m pip install --upgrade pip virtualenv
-  - py -3.7 -m virtualenv gsutil-env
+  # Make a virtual environment for `gsutil`
+  - py -m pip install --upgrade pip virtualenv
+  - py -m virtualenv gsutil-env
   - gsutil-env\Scripts\python -m pip install gsutil
 
   # Set up the `boto` configuration for `gsutil`. BOTO_CONFIG must be set
