@@ -2,7 +2,7 @@
 env:
   global:
     - REPO_DIR=bezier
-    - BUILD_COMMIT=be1490d8cfbc6b2dfd9a722866973abf2738bc74
+    - BUILD_COMMIT=76d7c1b6b48f49b37699a656c60f06d8b3baca5b
     - BUILD_DEPENDS="numpy"
     - TEST_DEPENDS="--requirement bezier/scripts/requirements.txt"
     - PLAT=x86_64
@@ -11,14 +11,12 @@ env:
     - CONFIG_PATH="travis/config.sh"
 
 language: python
-python: 2.7
+python: 3.7
 sudo: required
 dist: trusty
 services: docker
 
 matrix:
-  exclude:
-    - python: 2.7
   include:
     - os: linux
       env:
@@ -34,6 +32,13 @@ matrix:
       env:
         - MB_PYTHON_VERSION=3.7
         - PLAT=i686
+    - os: linux
+      env:
+        - MB_PYTHON_VERSION=3.8
+    - os: linux
+      env:
+        - MB_PYTHON_VERSION=3.8
+        - PLAT=i686
     - os: osx
       osx_image: xcode9.2
       language: generic
@@ -44,6 +49,11 @@ matrix:
       language: generic
       env:
         - MB_PYTHON_VERSION=3.7
+    - os: osx
+      osx_image: xcode9.2
+      language: generic
+      env:
+        - MB_PYTHON_VERSION=3.8
 
 before_install:
   - source multibuild/common_utils.sh
@@ -58,9 +68,9 @@ script:
   - install_run ${PLAT}
 
 after_success:
-  # Make a Python 2.7 virtual environment for `gsutil`
+  # Make a Python 3.7 virtual environment for `gsutil`
   - python -m pip install --upgrade pip virtualenv
-  - python -m virtualenv --python=python2.7 gsutil-env
+  - python -m virtualenv --python=python3.7 gsutil-env
   - gsutil-env/bin/pip install gsutil
 
   # Set up the `boto` configuration for `gsutil`. BOTO_CONFIG must be set
