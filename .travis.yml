@@ -68,9 +68,9 @@ script:
   - install_run ${PLAT}
 
 after_success:
-  # Make a Python 3.7 virtual environment for `gsutil`
+  # Make a virtual environment for `gsutil`
   - python -m pip install --upgrade pip virtualenv
-  - python -m virtualenv --python=python3.7 gsutil-env
+  - python -m virtualenv gsutil-env
   - gsutil-env/bin/pip install gsutil
 
   # Set up the `boto` configuration for `gsutil`. BOTO_CONFIG must be set
