@@ -1,7 +1,7 @@
 # `bezier-wheels`
 
 > **Note**
-> This was previously used to build wheels [`bezier`][1]. As of 2023-07-28,
+> This was previously used to build wheels for [`bezier`][1]. As of 2023-07-28,
 > this is no longer necessary because the `bezier` project has switched
 > to [`cibuildwheel`][2]. See the **Building Wheels** [workflow][3] in the
 > `bezier` repository for the new/current process for building wheels.
